@@ -1,0 +1,31 @@
+# Config
+local-config.php
+
+# Build
+build
+
+# Server
+.htaccess
+
+# Wordpress
+content/uploads/
+content/advanced-cache.php
+content/wp-cache-config.php
+content/upgrade/
+content/cache/
+content/backups/
+sitemap.xml
+sitemap.xml.gz
+
+# W3 Total Cache
+content/db.php
+content/object-cache.php
+content/w3-total-cache-config-preview.php
+content/w3tc/
+
+# Sass
+.sass-cache
+content/themes/*/*.css
+
+# Logs
+*.log
