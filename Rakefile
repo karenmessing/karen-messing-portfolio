@@ -2,9 +2,9 @@ require 'rubygems'
 require 'bundler/setup'
 require 'rake'
 require 'psych'
+require 'coffee-script'
 
 config = Psych.load(File.read('config/config.yml'))
-puts config.inspect
 
 task :default
 
@@ -29,7 +29,22 @@ namespace :build do
   
   desc 'Compile CoffeeScript to JavaScript.'
   task :coffee do
-    puts 'compile coffeescript for build'
+    input = config['coffeescript']['in']
+    output = config['coffeescript']['out']
+    files = Dir.glob("#{input}/**/*").reject {|f| File.directory?(f)}
+    
+    # Compile each file.
+    files.each do |file|
+      newDir = File.dirname(file).sub!(input, output)
+      newName = File.basename(file).sub!('.coffee', '.js')
+
+      FileUtils.mkdir_p newDir
+      newpath = File.join newDir, newName
+      compiled = CoffeeScript.compile(File.read file)
+      newFile = File.new newpath, 'w+'
+      newFile.write compiled
+      puts "Compiled #{file} to #{newpath}."
+    end
   end
   
   desc 'Optimize images.'

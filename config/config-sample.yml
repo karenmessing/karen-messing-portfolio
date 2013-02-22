@@ -4,6 +4,10 @@
 # See the Rakefile (or run `bundle exec rake -T`) for tasks that use this information.
 themename: test
 
+coffeescript:
+  in: in
+  out: out
+
 development:
   database:
     name: name
