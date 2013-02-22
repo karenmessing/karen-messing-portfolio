@@ -4,6 +4,8 @@
 # See the Rakefile (or run `bundle exec rake -T`) for tasks that use this information.
 themename: test
 
+build_dir: build
+
 coffeescript:
   in: in
   out: out

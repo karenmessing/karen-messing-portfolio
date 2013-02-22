@@ -4,10 +4,22 @@ require 'rake'
 require 'psych'
 require 'coffee-script'
 
+# Get the config file.
 config = Psych.load(File.read('config/config.yml'))
 
 task :default
 
+desc 'Remove the build directory.'
+task :clean, :dir do |task, args|
+  args.with_defaults(:dir => config['build_dir'])
+  
+  unless File.directory?(args[:dir])
+    puts "The #{args[:dir]} directory does not exist!"
+  else
+    FileUtils.rm_rf args[:dir]
+    puts "The #{args[:dir]} directory was successfully removed."
+  end
+end
 
 desc 'Build the production version of the site.'
 task :build => %w(build:optimized)
@@ -64,9 +76,6 @@ namespace :build do
     puts 'Built optimized version!'
   end
 end
-
-
-
 
 desc 'Sync database and content from production to development.'
 task :sync => %w(sync:db sync:content)
