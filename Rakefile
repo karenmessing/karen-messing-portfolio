@@ -3,6 +3,11 @@ require 'bundler/setup'
 require 'rake'
 require 'psych'
 
+config = Psych.load(File.read('config/config.yml'))
+puts config.inspect
+
+task :default
+
 
 desc 'Build the production version of the site.'
 task :build => %w(build:optimized)

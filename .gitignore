@@ -1,5 +1,6 @@
 # Config
 local-config.php
+config/config.yml
 
 # Build
 build

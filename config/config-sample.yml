@@ -1,0 +1,36 @@
+# Configuration options.
+#
+# This config file is only used for development related taks.
+# See the Rakefile (or run `bundle exec rake -T`) for tasks that use this information.
+themename: test
+
+development:
+  database:
+    name: name
+    user: user
+    pass: pass
+    host: host
+    
+staging:
+  deploy:
+    user: user
+    host: host
+    directory: dir
+    
+  database:
+    name: name
+    user: user
+    pass: pass
+    host: host
+    
+production:
+  deploy:
+    user: user
+    host: host
+    directory: dir
+    
+  database:
+    name: name
+    user: user
+    pass: pass
+    host: host
