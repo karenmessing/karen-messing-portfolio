@@ -1,6 +1,50 @@
 require 'rubygems'
 require 'bundler/setup'
+require 'rake'
 require 'psych'
+
+
+desc 'Build the production version of the site.'
+task :build => %w(build:optimized)
+
+namespace :build do
+  desc 'Compile the CSS using Compass.'
+  task :css, [:env] do |task, args|
+    args.with_defaults :env => 'development'
+    force = args[:env] == 'production' ? '--force' : ''
+    puts "bundle exec compass compile -e #{args[:env]} #{force}"
+  end
+  
+  desc 'Optimize the JavaScript using the r.js optimizer.'
+  task :js, [:env] do |task, args|
+    args.with_defaults :env => 'development'
+    optimize = args[:env] == 'production' ? 'uglify' : 'none'
+    puts "node r.js -o app.build.js optimize=#{optimize}"
+  end
+  
+  desc 'Compile CoffeeScript to JavaScript.'
+  task :coffee do
+    puts 'compile coffeescript for build'
+  end
+  
+  desc 'Optimize images.'
+  task :img do
+    puts 'optimize images for build'
+  end
+  
+  desc 'Build a debug, staging ready version of the site.'
+  task :debug => %w(coffee css js) do
+    puts 'Built debug version!'
+  end
+  
+  desc 'Build an optimized, production ready version of the site.'
+  task :optimized => %w(coffee img) do
+    Rake::Task['build:css'].invoke('production')
+    Rake::Task['build:js'].invoke('production')
+    puts 'Built optimized version!'
+  end
+end
+
 
 
 
