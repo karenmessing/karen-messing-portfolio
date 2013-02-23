@@ -14,10 +14,10 @@ task :clean, :dir do |task, args|
   args.with_defaults(:dir => config['build_dir'])
   
   unless File.directory?(args[:dir])
-    puts "The #{args[:dir]} directory does not exist!"
+    puts "The #{args[:dir]}/ directory does not exist!"
   else
     FileUtils.rm_rf args[:dir]
-    puts "The #{args[:dir]} directory was successfully removed."
+    puts "The #{args[:dir]}/ directory was successfully removed."
   end
 end
 
@@ -25,6 +25,19 @@ desc 'Build the production version of the site.'
 task :build => %w(build:optimized)
 
 namespace :build do
+  desc 'Create the build directory.'
+  task :create => %w(clean) do
+    FileUtils.mkdir config['build_dir']
+    puts "The #{config['build_dir']}/ directory created."
+  end
+  
+  desc 'Move WordPress assets into the build.'
+  task :wp => %w(create) do
+    # Move the WordPress core.
+    FileUtils.cp_r %w(wp content wp-config.php index.php), config['build_dir']
+    puts "The WordPress assets have been moved to #{config['build_dir']}/."
+  end
+  
   desc 'Compile the CSS using Compass.'
   task :css, [:env] do |task, args|
     args.with_defaults :env => 'development'
