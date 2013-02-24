@@ -5,6 +5,7 @@
 themename: test
 
 build_dir: build
+db_dir: databases
 
 coffeescript:
   in: in

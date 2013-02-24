@@ -121,3 +121,19 @@ namespace :sync do
     end
   end
 end
+
+desc 'Export the database.'
+task :db => %w(db:dump)
+
+namespace :db do
+  desc "Export the local database to #{config['db_dir']}/"
+  task :dump do
+    db = config['development']['database']
+    pass = db['password'].nil? ? '' : "-p#{db['password']}"
+    time = Time.now.strftime('%Y-%m-%d-%H%M%S')
+    
+    FileUtils.mkdir_p config['db_dir'] unless File.directory? config['db_dir']
+    system "mysqldump -u#{db['user']} #{pass} #{db['name']} > #{config['db_dir']}/#{db['name']}_#{time}.sql"
+    puts "Exported #{db['name']} to #{config['db_dir']}/#{db['name']}_#{time}.sql"
+  end
+end
