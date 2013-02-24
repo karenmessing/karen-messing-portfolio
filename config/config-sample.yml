@@ -7,9 +7,12 @@ themename: test
 build_dir: build
 db_dir: databases
 
+# These directories are relative to your theme directory.
+# An in value of 'assets/coffee' will expand to:
+# 'content/themes/<themename>/assets/coffee'
 coffeescript:
-  in: in
-  out: out
+  in: assets/coffee
+  out: assets/js
 
 development:
   database:

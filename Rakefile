@@ -54,8 +54,8 @@ namespace :build do
   
   desc 'Compile CoffeeScript to JavaScript.'
   task :coffee do
-    input = config['coffeescript']['in']
-    output = config['coffeescript']['out']
+    input = "content/themes/#{config['themename']}/#{config['coffeescript']['in']}"
+    output = "content/themes/#{config['themename']}/#{config['coffeescript']['out']}"
     files = Dir.glob("#{input}/**/*").reject {|f| File.directory?(f)}
     
     # Compile each file.
