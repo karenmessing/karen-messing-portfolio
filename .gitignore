@@ -5,6 +5,9 @@ config/config.yml
 # Build
 build
 
+# Database exports
+databases
+
 # Server
 .htaccess
 
@@ -26,7 +29,11 @@ content/w3tc/
 
 # Sass
 .sass-cache
-content/themes/*/*.css
+content/themes/*/assets/css
+
+# Generated JavaScript
+content/themes/*/assets/js/*.js
+!content/themes/*/assets/js/libs/
 
 # Logs
 *.log
