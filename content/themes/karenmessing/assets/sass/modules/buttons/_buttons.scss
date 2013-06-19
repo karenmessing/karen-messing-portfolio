@@ -1,0 +1,18 @@
+// Buttons module.
+// Variable defaults.
+
+// Imports.
+@import 'mixins';
+
+// Mixon.
+@mixin buttons() {
+  .button {
+    @extend %button-layout;
+  }
+}
+
+// Module extends.
+// Button layout extend.
+%button-layout {
+  @include inline-block;
+}

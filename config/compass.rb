@@ -2,7 +2,7 @@
 require 'susy'
 
 http_path  = '/'
-project_name = ''
+project_name = 'karenmessing'
 asset_path = "content/themes/#{project_name}/assets"
 
 css_dir = if environment == :production

@@ -1,0 +1,77 @@
+/** ----------------------------------
+
+  Website
+  -------
+
+  Website layout, for common elements.
+
+---------------------------------- */
+@include border-box-sizing;
+
+html {
+}
+
+body {
+}
+
+.container {
+  @include position(relative);
+  @include box-sizing(content-box);
+  @include container;
+  @include grid-bg;
+  
+  height: 100%;
+  
+  @include phone {
+    @include set-container-width;
+    @include grid-bg;
+  }
+  
+  @include tablet {
+    @include set-container-width;
+    @include grid-bg;
+  }
+}
+
+// Helper classes.
+.desktop-only {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.mobile-only {
+  display: none;
+  
+  @include mobile {
+    display: block;
+  }
+}
+
+.tablet-only {
+  @include tablet {
+    display: inherit;
+  }
+  
+  display: none;
+}
+
+.hide-phone {
+  @include phone {
+    display: none;
+  }
+}
+
+// Misc. elements.
+hr {
+  width: auto;
+  height: 1px;
+  border: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

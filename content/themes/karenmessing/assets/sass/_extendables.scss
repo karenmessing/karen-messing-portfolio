@@ -1,0 +1,15 @@
+/** ----------------------------------
+
+  Extendables
+  -----------
+
+---------------------------------- */
+// Clearfix extend.
+%clearfix {
+  @include pie-clearfix;
+}
+
+// Hide text extend.
+%hide-text {
+  @include hide-text;
+}
