@@ -44,5 +44,5 @@ Security::forceLogin();
 
 <body <?php body_class('page-' . $post->post_name); ?>>
   <header class="global-header <?php if ($post->post_name === 'about') { echo 'mobile-only'; } ?>">
-    global header
+    <nav class="global-navigation"><?php wp_nav_menu('container=null'); ?></nav>
   </header>
