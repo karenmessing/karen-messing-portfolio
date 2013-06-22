@@ -1,0 +1,9 @@
+// Type module mixins.
+// Include custom fonts.
+@mixin include-fonts() {
+  @include font-face('din-rounded', font-files(
+    'din-rounded-medium.woff',
+    'din-rounded-medium.ttf',
+    'din-rounded-medium.svg'
+  ), 'din-rounded-medium.eot', 700, normal);
+}

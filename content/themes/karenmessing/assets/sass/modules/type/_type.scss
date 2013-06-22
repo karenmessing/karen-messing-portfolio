@@ -1,0 +1,12 @@
+// Type module.
+// Variable defaults.
+
+// Imports.
+@import 'mixins';
+
+// Mixon.
+@mixin type() {
+  @include include-fonts;
+}
+
+// Module extends.
