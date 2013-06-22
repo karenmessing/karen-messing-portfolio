@@ -38,6 +38,9 @@ Security::forceLogin();
     window.km.bootstrapped = {}; // Bootstrapped data.
   </script>
   <script data-main="<?php echo Assets::js('main'); ?>" src="<?php Assets::js('libs/require'); ?>"></script>
+  
+  <script type="text/javascript" src="//use.typekit.net/oob4hls.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   <?php wp_head(); ?>
 </head>

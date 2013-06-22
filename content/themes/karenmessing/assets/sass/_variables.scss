@@ -8,8 +8,8 @@
 $project-name: project();
 
 // Type/
-$sans-stack: sans-serif;
-$serif-stack: 'Georgia', serif;
+$sans-stack: "brandon-grotesque-1","brandon-grotesque-2", sans-serif;
+$serif-stack: "ff-tisa-web-pro-1","ff-tisa-web-pro-2", 'Georgia', serif;
 $primary-stack: $serif-stack;
 $secondary-stack: $sans-stack;
 
