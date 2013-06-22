@@ -7,6 +7,14 @@
 // Mixon.
 @mixin type() {
   @include include-fonts;
+  
+  a {
+    @extend %link-styles;
+  }
 }
 
 // Module extends.
+// Link style extend.
+%link-styles {
+  color: white;
+}
