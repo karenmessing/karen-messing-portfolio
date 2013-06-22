@@ -1,8 +1,7 @@
 <?php get_header(); ?>
 
-<h1>About</h1>
-
 <div class="about-content">
+  <h2>About</h2>
   <?php the_field('about_details'); ?>
 </div>
 

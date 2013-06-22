@@ -22,6 +22,19 @@ a {
   text-decoration: none;
 }
 
+#{headers()} {
+  font-family: $secondary-stack;
+}
+
+h1 {
+  color: $accent-alt;
+  text-align: center;
+}
+
+h2 {
+  color: $accent;
+}
+
 .container {
   @include position(relative);
   @include box-sizing(content-box);
