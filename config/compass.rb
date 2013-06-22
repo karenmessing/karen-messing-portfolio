@@ -20,7 +20,7 @@ fonts_dir       = "#{asset_path}/fonts"
 sass_options = {
   :debug_info => true,
   :custom => {
-    project_name: project_name
+    project_name => project_name
   }
 }
 
