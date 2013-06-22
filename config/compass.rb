@@ -17,7 +17,12 @@ javascripts_dir = "#{asset_path}/js"
 fonts_dir       = "#{asset_path}/fonts"
 
 # Enable debug info to use source maps. Works in Chrome Dev Tools.
-sass_options = {:debug_info => true}
+sass_options = {
+  :debug_info => true,
+  :custom => {
+    project_name: project_name
+  }
+}
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
@@ -39,6 +44,6 @@ module Sass::Script::Functions
   #
   # Returns the project name.
   def project
-    Sass::Script::String.new(project_name)
+    Sass::Script::String.new(@options['project_name'])
   end
 end
