@@ -22,20 +22,20 @@ $base-line-height: 20px;
 // Susy config.
 // Media layouts.
 $break-phone: 1 480px;
-$break-tablet: 481px 3 800px;
-$break-mobile: 3 801px;
-$break-desktop: 801px 4;
+$break-tablet: 481px 6 800px;
+$break-mobile: 6 801px;
+$break-desktop: 801px 12;
 
 // Grid.
-$total-columns: 4;
-$column-width: 440px;
-$gutter-width: 40px;
-$grid-padding: 55px;
+$total-columns: 12;
+$column-width: 80px;
+$gutter-width: 15px;
+$grid-padding: $gutter-width;
 
 // Options.
 $container-style: magic;
-$container-width: 1040px;
-$show-grid-backgrounds: false;
+$container-width: 1155px;
+$show-grid-backgrounds: true;
 
 // Transitions.
 $transition-fast: .2s;
