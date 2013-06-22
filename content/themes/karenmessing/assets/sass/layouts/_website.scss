@@ -14,6 +14,7 @@ html {
 }
 
 body {
+  @include container;
 }
 
 a {
@@ -87,6 +88,7 @@ header,
 footer {
   
   text-align: center;
+  clear: both;
   
   a {
     color: $secondary;
