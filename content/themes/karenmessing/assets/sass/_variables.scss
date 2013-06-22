@@ -9,9 +9,9 @@ $project-name: project();
 
 // Type/
 $sans-stack: sans-serif;
-$serif-stack: serif;
-$primary-stack: $sans-stack;
-$secondary-stack: $serif-stack;
+$serif-stack: 'Georgia', serif;
+$primary-stack: $serif-stack;
+$secondary-stack: $sans-stack;
 
 // Compass config.
 $legacy-support-for-ie8: true;
@@ -43,9 +43,15 @@ $transition-fast: .2s;
 // Colors.
 // Palette.
 $gray: #808080;
+$black: #000;
+$blue: #88A1A9;
+$pink: #CC188C;
+$light-grey: #e4e4e4;
 
 // Site colors.
 $text: $gray;
 $primary: $gray;
-$secondary: null;
-$tertiary: null;
+$secondary: $black;
+$tertiary: $blue;
+$accent: $pink;
+$divider: $light-grey;

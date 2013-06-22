@@ -9,9 +9,16 @@
 @include border-box-sizing;
 
 html {
+  font-family: $primary-stack;
+  color: $primary;
 }
 
 body {
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
 }
 
 .container {
@@ -75,3 +82,48 @@ ol {
   padding: 0;
   list-style: none;
 }
+
+header,
+footer {
+  
+  text-align: center;
+  
+  a {
+    color: $secondary;
+    display: inline-block;
+    font-family: $secondary-stack;
+    color: $secondary;
+  }
+  
+} // header, footer
+
+header {
+  
+  @include horizontal-divider(after);
+  
+  .menu-item {
+    display: inline-block;
+  }
+  
+} // header
+
+.global-logo {
+  border: 2px solid $secondary;
+  padding: 15px 20px;
+}
+
+.menu-item:first-child {
+  padding-right: 45px;
+  margin-right: 45px;
+  border-right: 1px solid $divider;
+}
+
+footer {
+  
+  @include horizontal-divider(before);
+  
+  small {
+    display: block;
+  }
+  
+} // footer

@@ -99,3 +99,28 @@
     @content;
   }
 }
+
+/** ----------------------------------
+
+    Misc
+    
+---------------------------------- */
+@mixin horizontal-divider($pseudo) {
+  
+  $direction: bottom;
+  
+  @if $pseudo == 'after' {
+    $direction: top;
+  }
+  
+  &:#{$pseudo} {
+    content: "";
+    display: block;
+    margin: auto;
+    width: 120px;
+    height: 1px;
+    background-color: $divider;
+    margin-#{$direction}: 30px;
+  }
+  
+} // horizontal-divider
