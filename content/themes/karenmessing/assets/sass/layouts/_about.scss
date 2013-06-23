@@ -4,4 +4,13 @@
     text-align: left;
   }
   
+} // .page-about
+
+.about-content {
+  @include span-columns(8);
+  
+}
+
+.contact-details {
+  @include span-columns(4 omega);
 }

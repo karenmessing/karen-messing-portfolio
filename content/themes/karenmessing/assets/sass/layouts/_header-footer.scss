@@ -5,6 +5,7 @@ footer {
   clear: both;
   
   a {
+    text-transform: uppercase;
     color: $secondary;
     display: inline-block;
     font-family: $secondary-stack;
@@ -16,7 +17,6 @@ footer {
 header {
   
   @include horizontal-divider(after);
-  text-transform: uppercase;
   
   .menu-item {
     display: inline-block;
@@ -28,6 +28,7 @@ header {
   border: 2px solid $secondary;
   padding: 15px 20px;
   margin: 45px 0;
+  letter-spacing: 5px;
 }
 
 .menu-item:first-child {
@@ -37,20 +38,32 @@ header {
   border-right: 1px solid $divider;
   
   @include phone {
+    
     padding-right: 0;
     margin-right: 0;
     border: none;
     width: 100%;
-  }
+    
+    @include horizontal-divider(after, 30px) {
+      margin: 20px auto;
+    }
+    
+  } // phone
   
 } // .menu-item:first-child
 
 footer {
   
   @include horizontal-divider(before);
+  padding-bottom: 30px;
+  
+  a {
+    font-size: .8em;
+  }
   
   small {
     display: block;
+    font-size: .7em;
   }
   
 } // footer

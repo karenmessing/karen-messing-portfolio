@@ -105,7 +105,7 @@
     Misc
     
 ---------------------------------- */
-@mixin horizontal-divider($pseudo) {
+@mixin horizontal-divider($pseudo, $width: 120px) {
   
   $direction: bottom;
   
@@ -117,10 +117,11 @@
     content: "";
     display: block;
     margin: auto;
-    width: 120px;
+    width: $width;
     height: 1px;
     background-color: $divider;
     margin-#{$direction}: 30px;
+    @content;
   }
   
 } // horizontal-divider

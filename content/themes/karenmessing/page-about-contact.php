@@ -21,6 +21,4 @@
   </ul>
 </aside>
 
-about
-
 <?php get_footer(); ?>

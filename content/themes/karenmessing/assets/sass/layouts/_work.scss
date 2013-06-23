@@ -14,8 +14,8 @@
   }
   
   @include phone {
-    @include span-columns(1 omega,1);
-    margin-bottom: gutter();
+    @include span-columns(1 omega);
+    margin-bottom: 4%;
   }
   
   a {
