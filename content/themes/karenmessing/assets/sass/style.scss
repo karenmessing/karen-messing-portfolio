@@ -37,6 +37,7 @@
 */
 /* Imports. */
 @import 'modules/buttons/buttons';
+@import 'modules/type/type';
 
 /* Module includes. */
 @include buttons;
@@ -45,5 +46,7 @@
   Layouts.
 */
 @import 'layouts/website';
+@import 'layouts/header-footer';
 @import 'layouts/work';
+@import 'layouts/category';
 @import 'layouts/about';

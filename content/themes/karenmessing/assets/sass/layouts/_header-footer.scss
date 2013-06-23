@@ -1,0 +1,56 @@
+header,
+footer {
+  
+  text-align: center;
+  clear: both;
+  
+  a {
+    color: $secondary;
+    display: inline-block;
+    font-family: $secondary-stack;
+    color: $secondary;
+  }
+  
+} // header, footer
+
+header {
+  
+  @include horizontal-divider(after);
+  text-transform: uppercase;
+  
+  .menu-item {
+    display: inline-block;
+  }
+  
+} // header
+
+.global-logo {
+  border: 2px solid $secondary;
+  padding: 15px 20px;
+  margin: 45px 0;
+}
+
+.menu-item:first-child {
+  
+  padding-right: 45px;
+  margin-right: 45px;
+  border-right: 1px solid $divider;
+  
+  @include phone {
+    padding-right: 0;
+    margin-right: 0;
+    border: none;
+    width: 100%;
+  }
+  
+} // .menu-item:first-child
+
+footer {
+  
+  @include horizontal-divider(before);
+  
+  small {
+    display: block;
+  }
+  
+} // footer

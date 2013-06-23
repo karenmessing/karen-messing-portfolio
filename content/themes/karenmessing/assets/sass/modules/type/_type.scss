@@ -6,15 +6,28 @@
 
 // Mixon.
 @mixin type() {
+  
   @include include-fonts;
   
   a {
-    @extend %link-styles;
+    color: $primary;
+    text-decoration: none;
   }
+
+  #{headers()} {
+    font-family: $secondary-stack;
+    text-align: center;
+  }
+
+  h1 {
+    color: $secondary;
+  }
+
+  h2 {
+    color: $accent;
+    text-transform: uppercase;
+  }
+  
 }
 
 // Module extends.
-// Link style extend.
-%link-styles {
-  color: white;
-}

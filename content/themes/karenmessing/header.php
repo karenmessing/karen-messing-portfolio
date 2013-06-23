@@ -38,15 +38,13 @@ Security::forceLogin();
     window.km.bootstrapped = {}; // Bootstrapped data.
   </script>
   <script data-main="<?php echo Assets::js('main'); ?>" src="<?php Assets::js('libs/require'); ?>"></script>
-  
-  <script type="text/javascript" src="//use.typekit.net/oob4hls.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   <?php wp_head(); ?>
 </head>
 
 <body <?php body_class('page-' . $post->post_name); ?>>
-  <header class="global-header <?php if ($post->post_name === 'about') { echo 'mobile-only'; } ?>">
-    <a href="/" class="global-logo"><?php echo $title; ?></a>
-    <nav class="global-navigation"><?php wp_nav_menu('container=null'); ?></nav>
-  </header>
+  <div class="container">
+    <header class="global-header <?php if ($post->post_name === 'about') { echo 'mobile-only'; } ?>">
+      <a href="/" class="global-logo"><?php echo $title; ?></a>
+      <nav class="global-navigation"><?php wp_nav_menu('container=null'); ?></nav>
+    </header>

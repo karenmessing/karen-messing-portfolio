@@ -8,8 +8,8 @@
 $project-name: project();
 
 // Type/
-$sans-stack: "brandon-grotesque-1","brandon-grotesque-2", sans-serif;
-$serif-stack: "ff-tisa-web-pro-1","ff-tisa-web-pro-2", 'Georgia', serif;
+$sans-stack: "Brandon Text", sans-serif;
+$serif-stack: "Tisa", 'Georgia', serif;
 $primary-stack: $serif-stack;
 $secondary-stack: $sans-stack;
 
@@ -34,8 +34,8 @@ $grid-padding: $gutter-width;
 
 // Options.
 $container-style: magic;
-$container-width: 1155px;
-$show-grid-backgrounds: true;
+$container-width: 1020px;
+$show-grid-backgrounds: false;
 
 // Transitions.
 $transition-fast: .2s;

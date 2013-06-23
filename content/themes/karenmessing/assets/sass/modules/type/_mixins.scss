@@ -1,9 +1,16 @@
 // Type module mixins.
 // Include custom fonts.
 @mixin include-fonts() {
-  @include font-face('din-rounded', font-files(
-    'din-rounded-medium.woff',
-    'din-rounded-medium.ttf',
-    'din-rounded-medium.svg'
-  ), 'din-rounded-medium.eot', 700, normal);
+  @include font-face('Brandon Text', font-files(
+     'BrandonText-Bold.woff',
+     'BrandonText-Bold.ttf'
+  ), 'BrandonText-Bold.eot', 700, normal);
+  @include font-face('Tisa', font-files(
+     'TisaWebPro-Medium.woff',
+     'TisaWebPro-Medium.ttf'
+  ), 'TisaWebPro-Medium.eot', 500, normal);
+  @include font-face('Tisa', font-files(
+     'TisaWebPro-MediumItalic.woff',
+     'TisaWebPro-MediumItalic.ttf'
+  ), 'TisaWebPro-MediumItalic.eot', 500, italic);
 }
