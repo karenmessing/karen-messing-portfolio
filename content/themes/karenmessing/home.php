@@ -14,7 +14,7 @@ $categories = get_categories($args);
     <?php foreach ($selected_works as $work): ?>
       <li class="grid-block <?php echo $work->post_name; ?>">
         <a href="<?php echo get_permalink($work->ID); ?>">
-          <?php echo $work->post_title; ?>
+          <span><?php echo $work->post_title; ?></span>
         </a>
       </li>
     <?php endforeach; ?>
@@ -27,7 +27,9 @@ $categories = get_categories($args);
       <?php if ($category->slug === 'uncategorized') continue; ?>
       
       <li class="grid-block <?php echo $category->slug; ?>">
-        <a href="<?php echo get_category_link($category->cat_ID); ?>"><?php echo $category->slug; ?></a>
+        <a href="<?php echo get_category_link($category->cat_ID); ?>">
+          <span><?php echo $category->name; ?></span>
+        </a>
       </li>
     <?php endforeach; ?>
   </ul>
