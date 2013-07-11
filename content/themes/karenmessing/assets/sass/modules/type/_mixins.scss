@@ -5,6 +5,10 @@
      'BrandonText-Bold.woff',
      'BrandonText-Bold.ttf'
   ), 'BrandonText-Bold.eot', 700, normal);
+  @include font-face('Brandon Text', font-files(
+     'BrandonText-Medium.woff',
+     'BrandonText-Medium.ttf'
+  ), 'BrandonText-Medium.eot', 500, normal);
   @include font-face('Tisa', font-files(
      'TisaWebPro-Medium.woff',
      'TisaWebPro-Medium.ttf'
