@@ -66,6 +66,16 @@ header {
 
   } // &:first-child
   
+  a {
+    
+    border-bottom: 2px solid transparent;
+    
+    &:hover {
+      border-bottom-color: $secondary;
+    }
+    
+  } // a
+  
 } // .menu-item
 
 footer {
