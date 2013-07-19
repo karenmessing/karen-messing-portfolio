@@ -46,6 +46,7 @@
   }
   
   a {
+    
     display: block;
     width: 100%;
     min-height: 100px;
@@ -60,21 +61,64 @@
     position: relative;
     overflow: hidden;
     font-style: normal;
+    
+    &:hover {
+      
+      .block-title-wrap {
+        opacity: 1;
+      }
+      
+      img {
+        opacity: .7;
+      }
+          
+    } // &:hover
+    
+    img {
+      vertical-align: top;
+    }
+    
+  } // a
+  
+  .block-title-wrap,
+  img,
+  .featured-work & a {
+    @include transition( opacity .2s );
+  }
+  
+  .block-title-wrap {
+    opacity: 0;
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    width: 100%;
+  }
+  
+  .block-title {
+    display: inline-block;
+    padding: 13px 18px;
   }
   
   .featured-work & {
     
-    span {
-      display: none;
+    a:after {
+      @include position(absolute, 0px 0 0 0px);
+      @include size( 100% );
+      @include box-shadow( inset 0 0 0 2px $secondary );
+      
+      content: "";
+      display: block;
+      opacity: 0;
     }
     
     a:hover {
       
-      @include box-shadow( inset 0 0 0 2px $secondary );
+      &:after {
+        opacity: 1;
+      }
     
-      span {
-        display: inline-block;
-        padding: 13px 18px;
+      .block-title {
         background: #fff;
       }
     
@@ -86,7 +130,7 @@
     
     a:before,
     a:after,
-    span:before {
+    .block-title-wrap:before {
       content: "";
       display: block;
       width: 175%;
@@ -97,7 +141,7 @@
     
     a {
       
-      @include maintain-ratio(4 2.5);
+      @include maintain-ratio(4 3);
       
       &:before {
         @include rotate(45deg);
@@ -115,7 +159,7 @@
       
     } // a
     
-    span:before {
+    .block-title-wrap:before {
       @include rotate(120deg);
       
       height: 140%;

@@ -14,7 +14,10 @@ $categories = get_categories($args);
     <?php foreach ($selected_works as $work): ?>
       <li class="grid-block <?php echo $work->post_name; ?>">
         <a href="<?php echo get_permalink($work->ID); ?>">
-          <span><?php echo $work->post_title; ?></span>
+          <img src="<?= wp_get_attachment_image_src( get_field('cover_image', $work->ID)['id'], 'large' )[0]; ?>" />
+          <span class="block-title-wrap">
+            <span class="block-title"><?php echo $work->post_title; ?></span>
+          </span>
         </a>
       </li>
     <?php endforeach; ?>
@@ -28,7 +31,9 @@ $categories = get_categories($args);
       
       <li class="grid-block <?php echo $category->slug; ?>">
         <a href="<?php echo get_category_link($category->cat_ID); ?>">
-          <span><?php echo $category->name; ?></span>
+          <span class="block-title-wrap">
+            <span class="block-title"><?php echo $category->name; ?></span>
+          </span>
         </a>
       </li>
     <?php endforeach; ?>

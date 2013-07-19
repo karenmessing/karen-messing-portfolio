@@ -31,6 +31,14 @@
   }
 }
 
+.site-content a {
+  font-style: italic;
+}
+
+img {
+  max-width: 100%;
+}
+
 // Helper classes.
 .desktop-only {
   @include mobile {
