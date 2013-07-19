@@ -4,13 +4,35 @@
     text-align: left;
   }
   
+  h2,
+  section {
+    @include prefix(1);
+  }
+  
+  section {
+    border-left: 1px solid lighten( $primary, 25% );
+  }
+  
+  @include phone {
+  
+    h2,
+    section,
+    .column {
+      @include span-columns(1);
+      border: none;
+      padding: 0;
+    }
+  
+  } // @include phone
+  
 } // .page-about
 
 .about-content {
-  @include span-columns(8);
-  
+  @include span-columns(7);
+  @include suffix(.5);
 }
 
 .contact-details {
-  @include span-columns(4 omega);
+  @include span-columns(4.5 omega);
+  @include prefix(.5);
 }

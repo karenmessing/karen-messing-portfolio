@@ -1,24 +1,28 @@
 <?php get_header(); ?>
 
-<div class="about-content">
+<div class="about-content column">
   <h2>About</h2>
-  <?php the_field('about_details'); ?>
+  <section>
+    <?php the_field('about_details'); ?>
+  </section>
 </div>
 
-<aside class="contact-details">
+<aside class="contact-details column">
   <h2>Contact</h2>
   
-  <ul>
-    <?php while (has_sub_field('contact_details')): ?>
-      <li>
-        <?php if (get_sub_field('method_uri')): ?>
-          <a href="<?php the_sub_field('method_uri');?>"><?php the_sub_field('method_title'); ?></a>
-        <?php else: ?>
-          <?php the_sub_field('method_title'); ?>
-        <?php endif; ?>
-      </li>
-    <?php endwhile; ?>
-  </ul>
+  <section>
+    <ul>
+      <?php while (has_sub_field('contact_details')): ?>
+        <li>
+          <?php if (get_sub_field('method_uri')): ?>
+            <a href="<?php the_sub_field('method_uri');?>"><?php the_sub_field('method_title'); ?></a>
+          <?php else: ?>
+            <?php the_sub_field('method_title'); ?>
+          <?php endif; ?>
+        </li>
+      <?php endwhile; ?>
+    </ul>
+  </section>
 </aside>
 
 <?php get_footer(); ?>
