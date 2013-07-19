@@ -95,7 +95,7 @@ namespace :build do
 end
 
 desc 'Sync database and content from production to development.'
-task :sync => %w(sync:db sync:content)
+task :sync => %w(sync:stage)
 
 namespace :sync do
   desc 'Sync the production database to the local database.'
@@ -109,19 +109,44 @@ namespace :sync do
   end
   
   desc 'Sync database and content from staging to development.'
-  task :stage => %w(sync:db:stage sync:content:stage)
+  task :stage => %w(sync:stage:db sync:stage:content)
   
-  namespace :db do
+  namespace :stage do
     desc 'Sync the staging database to the local database.'
-    task :stage do
-      puts 'sync staging db'
+    task :db do
+      print 'This will overwrite your existing database. Continue? [y/n]: '
+      resp = STDIN.gets.chomp
+      exit unless resp == 'y'
+      
+      dev = config['development']['database']
+      deploy = config['staging']['deploy']
+      db = config['staging']['database']
+      
+      # Dump database.
+      cmd = "ssh #{deploy['user']}@#{deploy['host']} \"mysqldump -u#{db['user']} -p#{db['pass']} #{db['name']} > /tmp/#{db['name']}.sql\""
+      system cmd
+      
+      # Download database.
+      cmd = "rsync -avzP #{deploy['user']}@#{deploy['host']}:/tmp/#{db['name']}.sql ./#{db['name']}.sql"
+      system cmd
+      
+      # Import database.
+      pass = dev['pass'] ? " -p#{dev['pass']}" : ''
+      cmd = "mysql -u#{dev['user']}#{pass} #{dev['name']} < #{db['name']}.sql"
+      system cmd
+      
+      # Cleanup.
+      FileUtils.rm "#{db['name']}.sql"
     end
-  end
-  
-  namespace :content do
+    
     desc 'Sync the staging content directory to the local content directory.'
-    task :stage do
-      puts 'sync staging content'
+    task :content do
+      puts 'Syncing remote content.'
+      deploy = config['staging']['deploy']
+      
+      # Sync content.
+      cmd = "rsync -avzP #{deploy['user']}@#{deploy['host']}:#{deploy['directory']}/content/uploads/ ./content/uploads/"
+      system cmd
     end
   end
 end
