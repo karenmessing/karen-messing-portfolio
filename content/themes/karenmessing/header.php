@@ -48,3 +48,4 @@ Security::forceLogin();
       <a href="/" class="global-logo"><?php echo $title; ?></a>
       <nav class="global-navigation"><?php wp_nav_menu('container=null'); ?></nav>
     </header>
+    <div class="site-content">
