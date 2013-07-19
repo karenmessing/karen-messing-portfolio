@@ -2,7 +2,7 @@
 
 <h1 class="project-title"><?php echo $post->post_title; ?></h1>
 
-<div class="project-description">
+<div class="description">
   <?php the_field('project_description'); ?>
 </div>
 

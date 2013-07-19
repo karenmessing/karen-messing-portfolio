@@ -134,12 +134,12 @@
   clear: left;
 }
 
-.project-description {
+.description {
   @include squish(3,3);
   text-align: center;
   line-height: 1.8em;
 }
 
-.single .images {
+.images {
   text-align: center;
 }
