@@ -21,6 +21,8 @@
   @include phone {
     @include set-container-width;
     @include grid-bg;
+    padding-left: $grid-padding * 2;
+    padding-right: $grid-padding * 2;
   }
   
   @include tablet {
