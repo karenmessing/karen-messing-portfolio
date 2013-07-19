@@ -5,7 +5,7 @@ require 'psych'
 require 'coffee-script'
 
 # Get the config file.
-config = Psych.load(File.read('config/config.yml'))
+config = Psych.load File.read 'config/config.yml'
 
 task :default
 
@@ -42,14 +42,18 @@ namespace :build do
   task :css, [:env] do |task, args|
     args.with_defaults :env => 'development'
     force = args[:env] == 'production' ? '--force' : ''
-    puts "bundle exec compass compile -e #{args[:env]} #{force}"
+    cmd = "bundle exec compass compile -e #{args[:env]} #{force}"
+    puts "Running: #{cmd}"
+    system cmd
   end
   
   desc 'Optimize the JavaScript using the r.js optimizer.'
   task :js, [:env] do |task, args|
     args.with_defaults :env => 'development'
-    optimize = args[:env] == 'production' ? 'uglify' : 'none'
-    puts "node r.js -o app.build.js optimize=#{optimize}"
+    optimize = args[:env] == 'production' ? 'uglify2' : 'none'
+    cmd = "node r.js -o app.build.js optimize=#{optimize}"
+    puts "Running: #{cmd}"
+    system cmd
   end
   
   desc 'Compile CoffeeScript to JavaScript.'
@@ -78,12 +82,12 @@ namespace :build do
   end
   
   desc 'Build a debug, staging ready version of the site.'
-  task :debug => %w(coffee css js) do
+  task :debug => %w(wp coffee css js) do
     puts 'Built debug version!'
   end
   
   desc 'Build an optimized, production ready version of the site.'
-  task :optimized => %w(coffee img) do
+  task :optimized => %w(wp coffee img) do
     Rake::Task['build:css'].invoke('production')
     Rake::Task['build:js'].invoke('production')
     puts 'Built optimized version!'
@@ -135,5 +139,23 @@ namespace :db do
     FileUtils.mkdir_p config['db_dir'] unless File.directory? config['db_dir']
     system "mysqldump -u#{db['user']} #{pass} #{db['name']} > #{config['db_dir']}/#{db['name']}_#{time}.sql"
     puts "Exported #{db['name']} to #{config['db_dir']}/#{db['name']}_#{time}.sql"
+  end
+end
+
+desc 'Deploy to staging.'
+task :deploy => %w(deploy:staging)
+
+namespace :deploy do
+  desc 'Deploy to staging.'
+  task :staging => %(build:debug) do
+    deploy = config['staging']['deploy']
+    cmd = "rsync -az --progress --delete --exclude='.htaccess' --exclude='local-config.php' build/ #{deploy['user']}@#{deploy['host']}:#{deploy['directory']}/"
+    puts "Running: #{cmd}"
+    system cmd
+  end
+  
+  desc 'Deploy to production.'
+  task :prod do
+    puts 'Not set up yet.'
   end
 end
