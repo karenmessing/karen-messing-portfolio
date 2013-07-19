@@ -16,6 +16,7 @@
 .grid-block {
   
   @include span-columns(4);
+  
   margin-bottom: gutter();
   
   @include desktop {
@@ -29,6 +30,7 @@
   @include tablet {
     
     @include span-columns(3);
+    
     margin-bottom: gutter();
     
     &:nth-child(2n) {
@@ -39,6 +41,7 @@
   
   @include phone {
     @include span-columns(1 omega);
+    
     margin-bottom: 4%;
   }
   
@@ -98,12 +101,14 @@
       
       &:before {
         @include rotate(45deg);
+        
         top: -35%;
         right: -65%;
       }
       
       &:after {
         @include rotate(10deg);
+        
         left: -30%;
         bottom: -70%;
       }
@@ -112,6 +117,7 @@
     
     span:before {
       @include rotate(120deg);
+      
       height: 140%;
       left: -90%;
     }
@@ -136,6 +142,7 @@
 
 .description {
   @include squish(3,3);
+  
   text-align: center;
   line-height: 1.8em;
 }
