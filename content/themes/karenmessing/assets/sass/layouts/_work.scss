@@ -19,14 +19,23 @@
   margin-bottom: gutter();
   
   @include desktop {
-    @include nth-omega(3n);
-  }
+    
+    &:nth-child(3n) {
+      @include omega;
+    }
+    
+  } // @include desktop
   
   @include tablet {
+    
     @include span-columns(3);
-    @include nth-omega(2n);
     margin-bottom: gutter();
-  }
+    
+    &:nth-child(2n) {
+      @include omega;
+    }
+    
+  } // @include tablet
   
   @include phone {
     @include span-columns(1 omega);
@@ -103,8 +112,8 @@
       height: 200%;
       left: -50%;
     }
-    
-    @include block-hover( adjust-hue( shade( $accent, .4 ), 30 ) ); //#ED6971 );
+
+    @include block-hover( adjust-hue( $accent, 30 ) ); //#ED6971 );
     
     &:nth-child(1) {
       @include block-hover( adjust-hue( desaturate( $accent-alt, 12 ), 20 ) ); // #00A782 );
