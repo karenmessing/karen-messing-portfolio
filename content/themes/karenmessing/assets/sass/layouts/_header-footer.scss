@@ -18,6 +18,7 @@ footer {
 header {
   
   @include horizontal-divider(after);
+  margin-bottom: 2em;
   
   .menu-item {
     display: inline-block;

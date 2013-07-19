@@ -10,7 +10,7 @@
   <ul class="images">
     <?php while (has_sub_field('images')): ?>
       <li class="image">
-        <?php var_dump(get_sub_field('image')); ?>
+        <img src="<?= get_sub_field('image')['url']; ?>" />
       </li>
     <?php endwhile; ?>
   </ul>

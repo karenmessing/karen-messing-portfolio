@@ -132,6 +132,17 @@
 }
 
 .project-description {
-  @include squish(1,1);
+  
+  @include squish(3,3);
+  text-align: center;
+  line-height: 1.8em;
+  
+  a {
+    font-style: italic;
+  }
+  
+} // .project-description
+
+.single .images {
   text-align: center;
 }
