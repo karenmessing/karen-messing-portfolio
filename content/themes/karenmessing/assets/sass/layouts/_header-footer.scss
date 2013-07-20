@@ -36,6 +36,8 @@ header {
 
 .global-logo {
   
+  @include transition( color .15s linear, border-color .15s linear );
+  
   border: 2px solid $secondary;
   padding: 15px 25px;
   margin: 45px 0;
@@ -84,6 +86,16 @@ header {
     }
     
   } // a
+  
+  &.current-menu-item a {
+    
+    color: $tertiary;
+    
+    &:hover {
+      border-bottom-color: $tertiary;
+    }
+    
+  } // &.current-menu-item a
   
 } // .menu-item
 
