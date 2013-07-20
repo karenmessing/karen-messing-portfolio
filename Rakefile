@@ -70,8 +70,10 @@ namespace :build do
       FileUtils.mkdir_p newDir
       newpath = File.join newDir, newName
       compiled = CoffeeScript.compile(File.read file)
-      newFile = File.new newpath, 'w+'
-      newFile.write compiled
+      newFile = File.open newpath, 'w+' do |f|
+        f.write compiled
+      end
+
       puts "Compiled #{file} to #{newpath}."
     end
   end

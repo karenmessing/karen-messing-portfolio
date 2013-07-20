@@ -42,7 +42,7 @@ $table_prefix  = 'wp_';
 define('WPLANG', '');
 
 # Debug.
-define('WP_DEBUG', getenv('ENVIRONMENT') === 'production' ? false : true);
+define('WP_DEBUG', ENV === 'production' ? false : true);
 
 # ABSPATH constant.
 if (!defined('ABSPATH')) {
