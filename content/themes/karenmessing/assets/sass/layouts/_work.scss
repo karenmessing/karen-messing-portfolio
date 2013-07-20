@@ -1,3 +1,11 @@
+/** ----------------------------------
+
+  Work
+  ----
+
+  Work page layout.
+
+---------------------------------- */
 @mixin block-hover( $color ) {
   
   a:hover {
@@ -125,63 +133,6 @@
     } // a:hover
     
   } // .featured-work & a:hover
-  
-  .work-categories & {
-    
-    a:before,
-    a:after,
-    .block-title-wrap:before {
-      content: "";
-      display: block;
-      width: 175%;
-      height: 100%;
-      background: rgba( $gray, .2 );
-      position: absolute;
-    }
-    
-    a {
-      
-      @include maintain-ratio(4 3);
-      
-      &:before {
-        @include rotate(45deg);
-        
-        top: -35%;
-        right: -65%;
-      }
-      
-      &:after {
-        @include rotate(10deg);
-        
-        left: -30%;
-        bottom: -70%;
-      }
-      
-    } // a
-    
-    .block-title-wrap:before {
-      @include rotate(120deg);
-      
-      height: 140%;
-      left: -90%;
-    }
-
-    @include block-hover( adjust-hue( $accent, 30 ) ); //#ED6971 );
-    
-    &:nth-child(1) {
-      @include block-hover( adjust-hue( desaturate( $accent-alt, 12 ), 20 ) ); // #00A782 );
-    }
-    
-    &:nth-child(2) {
-      @include block-hover( adjust-hue( saturate( $tertiary, 18 ), 18 ) ); //#4D7FAA );
-    }
-    
-  } // .work-categories &
-  
-} // .grid-block
-
-.work-categories {
-  clear: left;
 }
 
 .description {
@@ -193,4 +144,65 @@
 
 .images {
   text-align: center;
+}
+
+// Work categories. Series of gray-ish blocks at the bottom of the grid.
+.work-categories {
+  clear: left;
+  
+  $categories: invitations #CBD8E7, logos #F7D3D3, websites #CDF6E2;
+  
+  @each $category in $categories {
+    .#{nth($category, 1)}:hover {
+      background-color: nth($category, 2);
+      
+      .block-title-wrap {
+        color: darken(saturate(nth($category, 2), 10%), 30%);
+      }
+    }
+  }
+  
+  // Inidividual block.
+  .grid-block {
+    @include position(relative);
+    @include transition(background-color .3s ease-out);
+    
+    overflow: hidden;
+    background-color: #e4e4e4;
+  }
+    
+  // Block link wrapper. Controls the size of the block.
+  a {
+    @include maintain-ratio(4 3);
+    @include position(relative, 0, 1);
+    
+    display: block;
+    background-color: transparent;
+  }
+    
+  // Block title.
+  .block-title-wrap {
+    @include opacity(1);
+    @include transition(color .3s ease-out);
+  }
+  
+  // Gray shades.
+  .shade {
+    @include position(absolute);
+    @include transition(transform .3s ease-out);
+    -webkit-backface-visibility: hidden;
+    
+    $positions: 0px 0 0 0px, 0px 0px, 0 0 0px 0px, 0 0px 0px;
+    $adjust: .3;
+    
+    @for $index from 1 through 4 {
+      &.index-#{$index} {
+        @include pos-coords(nth($positions, $index));
+        
+        background-color: rgba(white, $adjust / 10);
+      }
+      
+      $adjust: $adjust + 1;
+    }
+  }
 }

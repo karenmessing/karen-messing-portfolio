@@ -28,6 +28,8 @@ Security::forceLogin();
   
   <link rel="stylesheet" href="<?php Assets::css('style'); ?>">
   
+  <style class="custom-category-css"></style>
+  
   <!--[if lt IE 9]>
     <script src="<?php Assets::js('libs/html5shiv'); ?>"></script>
   <![endif]-->
