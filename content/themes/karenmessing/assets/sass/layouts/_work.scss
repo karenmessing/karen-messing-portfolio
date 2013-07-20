@@ -146,6 +146,27 @@
   text-align: center;
 }
 
+// Featured work blocks.
+.featured-work {
+  .grid-block {
+    &:hover {
+      .block-title-wrap {
+        @include translate3d(0, 0, 0);
+      }
+    }
+  }
+  
+  .block-title-wrap {
+    @include translate3d(0, -50%, 0);
+    @include transition(.3s ease);
+    @include transition-property(transform opacity);
+    
+    .block-title {
+      background-color: white;
+    }
+  }
+}
+
 // Work categories. Series of gray-ish blocks at the bottom of the grid.
 .work-categories {
   clear: left;
