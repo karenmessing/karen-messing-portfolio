@@ -227,3 +227,51 @@
     }
   }
 }
+
+// Navigation arrows
+$circle_size: 35px;
+$arrow_width: 3px;
+
+.navigation-arrow {
+  
+  @include size( $circle_size );
+  
+  display: block;
+  border: 2px solid $primary;
+  border-radius: $circle_size/2;
+  position: relative;
+  
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    border: 8px solid transparent;
+    position: absolute;
+  }
+  
+  &.up {
+    
+    &:before,
+    &:after {
+      left: 50%;
+      margin-left: -8px;
+    }
+    
+    &:before {
+      border-bottom-color: $primary;
+      top: 2px;
+    }
+    
+    &:after {
+      border-bottom-color: #fff;
+      top: 5px;
+    }
+    
+  } // &.up
+  
+} // .navigation-arrow
+
+.back-to-top {
+  position: fixed;
+  margin-left: ( $circle_size + 30 ) * -1;
+}

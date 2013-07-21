@@ -4,6 +4,7 @@
 
 <?php foreach ($posts as $project): ?>
   <div class="images">
+    <a href="#" class="navigation-arrow up back-to-top"></a>
     <p class="description">
       <a href="<?= get_permalink( $project ); ?>"><?= $project->post_title; ?></a>
     </p>

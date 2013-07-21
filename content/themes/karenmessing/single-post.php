@@ -8,6 +8,7 @@
 
 <?php if (get_field('images')): ?>
   <ul class="images">
+    <li><a href="#" class="navigation-arrow up back-to-top"></a></li>
     <?php while (has_sub_field('images')): ?>
       <li class="image">
         <img src="<?= get_sub_field('image')['url']; ?>" />
