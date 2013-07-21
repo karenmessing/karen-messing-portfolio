@@ -26,7 +26,7 @@ header {
   
   @include horizontal-divider(after);
   
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   
   .menu-item {
     display: inline-block;
@@ -105,7 +105,7 @@ footer {
   
   padding-bottom: 30px;
   line-height: 50px;
-  margin-top: 30px;
+  margin-top: 3em;
   float: left; // prevent collapsing margins
   width: 100%;
   

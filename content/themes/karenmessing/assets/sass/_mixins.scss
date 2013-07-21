@@ -145,7 +145,7 @@
     width: $width;
     height: 1px;
     background-color: $divider;
-    margin-#{$direction}: 30px;
+    margin-#{$direction}: 40px;
     @content;
   }
   
