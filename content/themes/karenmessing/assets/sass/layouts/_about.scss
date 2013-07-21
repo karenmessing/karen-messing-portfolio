@@ -10,7 +10,7 @@
   }
   
   section {
-    border-left: 1px solid lighten( $primary, 25% );
+    border-left: 1px solid $divider;
   }
   
   @include phone {

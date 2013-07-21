@@ -13,8 +13,7 @@ $categories = get_categories($args);
   <ul class="grid featured-work">
     <?php foreach ($selected_works as $work): ?>
       <li class="grid-block <?php echo $work->post_name; ?>">
-        <a href="<?php echo get_permalink($work->ID); ?>">
-          <img src="<?= wp_get_attachment_image_src( get_field('cover_image', $work->ID)['id'], 'large' )[0]; ?>" />
+        <a href="<?php echo get_permalink($work->ID); ?>" style="background-image: url(<?= wp_get_attachment_image_src( get_field('cover_image', $work->ID)['id'], 'large' )[0]; ?>)">
           <span class="block-title-wrap">
             <span class="block-title"><?php echo $work->post_title; ?></span>
           </span>

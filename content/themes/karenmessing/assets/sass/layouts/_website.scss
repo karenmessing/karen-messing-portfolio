@@ -10,6 +10,10 @@
 
 @include type;
 
+html {
+  border: 5px solid $divider;
+}
+
 .container {
   @include position(relative);
   @include box-sizing(content-box);
