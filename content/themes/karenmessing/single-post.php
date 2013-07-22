@@ -17,4 +17,9 @@
   </ul>
 <?php endif; ?>
 
+<section class="work-nav">
+  <a href="#" class="navigation-arrow left"></a>
+  <a href="#" class="navigation-arrow right"></a>
+</section>
+
 <?php get_footer(); ?>

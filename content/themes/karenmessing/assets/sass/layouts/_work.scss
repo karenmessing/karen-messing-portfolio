@@ -234,6 +234,16 @@
   margin-top: 30px;
 }
 
+.work-nav {
+  
+  text-align: center;
+  
+  .navigation-arrow {
+    display: inline-block;
+  }
+  
+} // .work-nav
+
 // Navigation arrows
 $circle_size: 35px;
 $arrow_width: 3px;
@@ -274,6 +284,45 @@ $arrow_width: 3px;
     }
     
   } // &.up
+  
+  &.right,
+  &.left {
+    
+    &:before,
+    &:after {
+      left: 50%;
+      top: 7px;
+    }
+    
+  } // &.left, &.right
+  
+  &.right {
+    
+    &:before {
+      border-left-color: $primary;
+      margin-left: -2px;
+    }
+    
+    &:after {
+      border-left-color: #fff;
+      margin-left: -5px;
+    }
+    
+  } // &.right
+  
+  &.left {
+    
+    &:before {
+      border-right-color: $primary;
+      margin-left: -13px;
+    }
+    
+    &:after {
+      border-right-color: #fff;
+      margin-left: -10px;
+    }
+    
+  } // &.left
   
 } // .navigation-arrow
 
