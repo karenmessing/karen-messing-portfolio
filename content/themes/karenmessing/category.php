@@ -9,7 +9,7 @@
       <p class="description">
         <a href="<?= get_permalink( $project ); ?>"><?= $project->post_title; ?></a>
       </p>
-      <img src="<?= get_field('cover_image')['url']; ?>" />
+      <img src="<?= get_field('cover_image', $project->ID)['url']; ?>" />
     </section>
   </div>
 <?php endforeach; ?>
