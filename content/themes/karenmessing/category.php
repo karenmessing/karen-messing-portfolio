@@ -10,7 +10,7 @@
         <a href="<?= get_permalink( $project ); ?>"><?= $project->post_title; ?></a>
       </p>
       <img src="<?= get_field('cover_image')['url']; ?>" />
-    </div>
+    </section>
   </div>
 <?php endforeach; ?>
 
