@@ -15,6 +15,7 @@ html {
   
   @include phone {
     border: none;
+    font-size: .9em;
   }
 }
 
@@ -29,8 +30,8 @@ html {
   @include phone {
     @include set-container-width;
     @include grid-bg;
-    padding-left: $grid-padding * 2;
-    padding-right: $grid-padding * 2;
+    padding-left: $grid-padding * 1.5;
+    padding-right: $grid-padding * 1.5;
   }
   
   @include tablet {

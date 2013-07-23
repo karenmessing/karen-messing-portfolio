@@ -14,6 +14,10 @@
   }
   
   @include phone {
+    
+    header:after {
+      display: none;
+    }
   
     h2,
     section,
@@ -22,6 +26,11 @@
       
       border: none;
       padding: 0;
+    }
+    
+    .column {
+      border-top: 1px solid $divider;
+      padding: $gutter-width * .75 0;
     }
   
   } // @include phone

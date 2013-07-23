@@ -26,11 +26,19 @@ header {
   
   @include horizontal-divider(after);
   
-  margin-bottom: 3.5em;
+  margin-bottom: $header-footer;
   
   .menu-item {
     display: inline-block;
     line-height: 20px;
+  }
+  
+  @include phone {
+    margin-bottom: $header-footer-phone;
+    
+    &:after {
+      margin-top: $header-footer-phone - .5;
+    }
   }
   
 } // header
@@ -111,7 +119,7 @@ footer {
   
   padding-bottom: 30px;
   line-height: 20px;
-  margin-top: 3.5em;
+  margin-top: $header-footer;
   float: left; // prevent collapsing margins
   width: 100%;
   
@@ -124,6 +132,14 @@ footer {
     display: block;
     font-size: 9px;
     margin: 30px 0;
+  }
+  
+  @include phone {
+    margin-top: $header-footer-phone;
+    
+    &:before {
+      margin-bottom: $header-footer-phone;
+    }
   }
   
 } // footer

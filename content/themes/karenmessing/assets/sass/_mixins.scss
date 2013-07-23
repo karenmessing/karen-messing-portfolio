@@ -139,7 +139,7 @@
     Misc
     
 ---------------------------------- */
-@mixin horizontal-divider($pseudo, $width: 100px, $margin: 50px) {
+@mixin horizontal-divider($pseudo: 'before', $width: 100px, $margin: $header-footer) {
   
   $direction: bottom;
   

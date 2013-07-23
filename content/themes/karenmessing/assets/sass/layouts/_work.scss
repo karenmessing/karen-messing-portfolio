@@ -153,13 +153,24 @@
   
   text-align: center;
   line-height: 1.8em;
+  
+  @include phone {
+    margin-left: $gutter-width*.75;
+    margin-right: $gutter-width*.75;
+  }
 }
 
 .images {
+  
   @include squish(1,1);
   
   text-align: center;
-}
+  
+  @include phone {
+    @include squish(0,0);
+  }
+  
+} // .images
 
 // Featured work blocks.
 .featured-work {
