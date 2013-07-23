@@ -47,6 +47,7 @@ $black: #061b2b;
 $blue: #88A1A9;
 $pink: #CC188C;
 $pink-invert: invert($pink);
+$medium-grey: #e0e0e0;
 $light-grey: #efefef;
 
 // Site colors.
@@ -56,4 +57,4 @@ $secondary: $black;
 $tertiary: $blue;
 $accent: $pink;
 $accent-alt: $pink-invert;
-$divider: $light-grey;
+$divider: $medium-grey;

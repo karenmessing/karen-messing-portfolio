@@ -11,7 +11,7 @@
 @include type;
 
 html {
-  border: 12px solid $divider;
+  border: 12px solid $light-grey;
   
   @include phone {
     border: none;
