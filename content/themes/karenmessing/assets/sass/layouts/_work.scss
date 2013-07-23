@@ -21,6 +21,15 @@
   
 } // @mixin block-hover
 
+.single,
+.category {
+  
+  h1 {
+    margin: -.5em 0 2em;
+  }
+  
+} // .single, .category
+
 .grid-block {
   
   @include span-columns(4);
