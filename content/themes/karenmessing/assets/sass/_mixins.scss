@@ -20,6 +20,15 @@
   }
 }
 
+// Pixel-to-em mixin.
+//
+// $pixel - The pixel font size.
+// $base  - Site base font size.
+//          Defaults to compass' $base-font-size.
+@function em($pixel, $base: $base-font-size) {
+  @return unquote($pixel / $base + 'em');
+}
+
 // Print position coords only.
 // https://gist.github.com/brianmcallister/3641867
 // 
