@@ -6,7 +6,7 @@
   
   h2,
   section {
-    @include prefix(1);
+    padding-left: $column-width/2;
   }
   
   section {

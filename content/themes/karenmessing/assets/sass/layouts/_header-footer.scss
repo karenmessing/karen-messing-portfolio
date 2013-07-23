@@ -26,10 +26,11 @@ header {
   
   @include horizontal-divider(after);
   
-  margin-bottom: 3em;
+  margin-bottom: 3.5em;
   
   .menu-item {
     display: inline-block;
+    line-height: 20px;
   }
   
 } // header
@@ -40,7 +41,7 @@ header {
   
   border: 2px solid $secondary;
   padding: 15px 25px;
-  margin: 45px 0;
+  margin: 70px 0 55px;
   letter-spacing: 4px;
   font-size: 18px;
   
@@ -104,18 +105,20 @@ footer {
   @include horizontal-divider(before);
   
   padding-bottom: 30px;
-  line-height: 50px;
-  margin-top: 3em;
+  line-height: 20px;
+  margin-top: 3.5em;
   float: left; // prevent collapsing margins
   width: 100%;
   
   a {
-    font-size: .8em;
+    font-size: 12px;
+    letter-spacing: 1px;
   }
   
   small {
     display: block;
-    font-size: .7em;
+    font-size: 9px;
+    margin: 30px 0;
   }
   
 } // footer
