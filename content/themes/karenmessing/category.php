@@ -2,9 +2,12 @@
 
 <h1><?php single_cat_title(); ?></h1>
 
-<?php foreach ($posts as $project): ?>
+<?php $i = 0;
+foreach ($posts as $project): ?>
   <div class="images">
+    <?php if ( $i++ == 0 ): ?>
     <a href="#" class="navigation-arrow up back-to-top"></a>
+    <?php endif; ?>
     <section class="work-item">
       <p class="description">
         <a href="<?= get_permalink( $project ); ?>"><?= $project->post_title; ?></a>
