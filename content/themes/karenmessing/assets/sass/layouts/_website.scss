@@ -12,6 +12,10 @@
 
 html {
   border: 12px solid $divider;
+  
+  @include phone {
+    border: none;
+  }
 }
 
 .container {

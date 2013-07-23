@@ -50,6 +50,11 @@ header {
     border-color: $accent;
   }
   
+  @include phone {
+    margin: $gutter-width*2 0;
+    white-space: nowrap;
+  }
+  
 } // .global-logo
 
 .menu-item {
