@@ -13,11 +13,22 @@
   <section>
     <ul>
       <?php while (has_sub_field('contact_details')): ?>
-        <li>
-          <?php if (get_sub_field('method_uri')): ?>
-            <a href="<?php the_sub_field('method_uri');?>"><?php the_sub_field('method_title'); ?></a>
-          <?php else: ?>
-            <?php the_sub_field('method_title'); ?>
+        <?php
+          $uri = get_sub_field('method_uri');
+          $title = get_sub_field('method_title');
+          $blank = false;
+          
+          if ($uri === 'blank' && $title === 'blank') {
+            $blank = true;
+            $title = '&nbsp;';
+          }
+        ?>
+        
+        <li <?php if ($blank) { echo 'class="blank"'; } ?>>
+          <?php if ($blank || !get_sub_field('method_uri')): ?>
+            <?php echo $title; ?>
+          <?php else: ?>  
+            <a href="<?php echo $uri; ?>"><?php echo $title; ?></a>
           <?php endif; ?>
         </li>
       <?php endwhile; ?>
