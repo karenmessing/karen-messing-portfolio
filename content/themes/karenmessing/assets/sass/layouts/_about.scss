@@ -1,3 +1,11 @@
+/** ----------------------------------
+
+  About
+  -----
+
+  About page layout.
+
+---------------------------------- */
 .page-about-contact {
   
   h2 {
@@ -45,4 +53,8 @@
 .contact-details {
   @include span-columns(4.5 omega);
   @include prefix(.5);
+}
+
+.about-image {
+  margin-top: 80px;
 }

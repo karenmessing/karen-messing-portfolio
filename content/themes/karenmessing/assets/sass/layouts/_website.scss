@@ -30,6 +30,7 @@ html {
   @include phone {
     @include set-container-width;
     @include grid-bg;
+    
     padding-left: $grid-padding * 1.5;
     padding-right: $grid-padding * 1.5;
   }
@@ -40,8 +41,12 @@ html {
   }
 }
 
-.site-content a {
-  font-style: italic;
+.site-content {
+  @extend %clearfix;
+  
+  a {
+    font-style: italic;
+  }
 }
 
 img {

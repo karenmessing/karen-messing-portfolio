@@ -25,4 +25,8 @@
   </section>
 </aside>
 
+<?php if (get_field('photo')): ?>
+  <img class="about-image" src="<?php the_field('photo'); ?>">
+<?php endif; ?>
+
 <?php get_footer(); ?>
