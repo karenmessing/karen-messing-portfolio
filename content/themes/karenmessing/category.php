@@ -6,7 +6,7 @@
 <?php foreach ($posts as $project): ?>
   <div class="images">
     <?php if ($i++ == 0): ?>
-      <a href="#" class="navigation-arrow up back-to-top"></a>
+    <a href="#" class="navigation-arrow mask-icon arrow-up back-to-top"></a>
     <?php endif; ?>
     
     <section class="work-item">

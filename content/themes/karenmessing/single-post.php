@@ -13,7 +13,7 @@
 
 <?php if (get_field('images')): ?>
   <ul class="images">
-    <li><a href="#" class="navigation-arrow up back-to-top"></a></li>
+    <li><a href="#" class="navigation-arrow mask-icon arrow-up back-to-top"></a></li>
     <?php while (has_sub_field('images')): ?>
       <li class="image">
         <img src="<?= get_sub_field('image')['url']; ?>" />
@@ -23,8 +23,12 @@
 <?php endif; ?>
 
 <section class="work-nav">
-  <a href="#" class="navigation-arrow left"></a>
-  <a href="#" class="navigation-arrow right"></a>
+  <div class="navigation-arrow-wrap">
+    <a href="#" class="navigation-arrow mask-icon arrow-left"></a>
+  </div>
+  <div class="navigation-arrow-wrap">
+    <a href="#" class="navigation-arrow mask-icon arrow-right"></a>
+  </div>
 </section>
 
 <?php get_footer(); ?>

@@ -19,6 +19,7 @@
 /*
   Sprites.
 */
+@import "icons/*.png";
 
 /*
   Theme files.
@@ -38,9 +39,12 @@
 /* Imports. */
 @import 'modules/buttons/buttons';
 @import 'modules/type/type';
+@import 'modules/mask-icons/mask-icons';
 
 /* Module includes. */
 @include buttons;
+@include type;
+@include mask-icons;
 
 /*
   Layouts.
