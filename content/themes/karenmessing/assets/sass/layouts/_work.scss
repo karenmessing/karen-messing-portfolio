@@ -123,6 +123,11 @@
   
   .featured-work & {
     
+    a:after,
+    .block-title-wrap {
+      @include transition(opacity .25s ease-in-out);
+    }
+    
     a:after {
       @include position(absolute, 0px 0 0 0px);
       @include size( 100% );
@@ -133,20 +138,23 @@
       opacity: 0;
     }
     
-    a:hover {
-      
-      &:after {
-        opacity: 1;
-      }
+    a:hover:after {
+      opacity: 1;
+    }
+    
+    .block-title-wrap {
+    
+      @include translateZ(0);
     
       .block-title {
-        background: #fff;
+        background-color: white;
       }
     
-    } // a:hover
+    } // .block-title-wrap
     
-  } // .featured-work & a:hover
-}
+  } // .featured-work &
+  
+} // .grid-block
 
 .description {
   @include squish(3,3);
@@ -171,27 +179,6 @@
   }
   
 } // .images
-
-// Featured work blocks.
-.featured-work {
-  .grid-block {
-    &:hover {
-      .block-title-wrap {
-        @include translate3d(0, 0, 0);
-      }
-    }
-  }
-  
-  .block-title-wrap {
-    @include translate3d(0, -50%, 0);
-    @include transition(.3s ease);
-    @include transition-property(transform opacity);
-    
-    .block-title {
-      background-color: white;
-    }
-  }
-}
 
 // Work categories. Series of gray-ish blocks at the bottom of the grid.
 .work-categories {
