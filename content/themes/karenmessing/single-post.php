@@ -4,6 +4,11 @@
 
 <div class="description">
   <?php the_field('project_description'); ?>
+  
+  <?php if (get_field('project_link')): ?>
+    <?php $link = get_field('project_link'); ?>
+    <a href="//<?php echo $link; ?>"><?php echo $link; ?></a>
+  <?php endif; ?>
 </div>
 
 <?php if (get_field('images')): ?>

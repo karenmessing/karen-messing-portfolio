@@ -158,13 +158,17 @@
 
 .description {
   @include squish(3,3);
-  
-  text-align: center;
-  line-height: 1.8em;
-  
   @include phone {
     margin-left: $gutter-width*.75;
     margin-right: $gutter-width*.75;
+  }
+  
+  text-align: center;
+  line-height: 1.8em;
+  margin-bottom: 1em;
+  
+  p {
+    margin-bottom: 0;
   }
 }
 
