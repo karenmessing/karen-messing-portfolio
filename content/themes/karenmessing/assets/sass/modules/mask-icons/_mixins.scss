@@ -1,0 +1,20 @@
+// Mask icons module mixins.
+// Mask icon.
+//
+// $img  - The image path, without an extension.
+// $size - The size of the fallback sprite to use.
+@mixin mask-icon($img) {
+  $svg: 'icons/#{$img}.svg';
+  $png: 'icons/#{$img}.png';
+  
+  @include size(image-width($png), image-height($png));
+  
+  -webkit-mask: center center no-repeat image-url($svg);
+     -moz-mask: center center no-repeat image-url($svg);
+  
+  .no-cssmask & {
+    @include icons-sprite($img);
+  }
+  
+  color: transparent;
+}
