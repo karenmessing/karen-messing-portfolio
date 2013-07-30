@@ -13,7 +13,7 @@
 
 <?php if (get_field('images')): ?>
   <ul class="images">
-    <li><a href="#" class="navigation-arrow mask-icon arrow-up back-to-top"></a></li>
+    <li><a href="#" class="navigation-arrow mask-icon arrow-up back-to-top hide-phone"></a></li>
     <?php while (has_sub_field('images')): ?>
       <li class="image">
         <img src="<?= get_sub_field('image')['url']; ?>" />
@@ -22,6 +22,9 @@
   </ul>
 <?php endif; ?>
 
+<div class="navigation-arrow-wrap-phone phone-only">
+  <a href="#" class="navigation-arrow mask-icon arrow-up back-to-top"></a>
+</div>
 <section class="work-nav">
   <div class="navigation-arrow-wrap">
     <a href="#" class="navigation-arrow mask-icon arrow-left"></a>

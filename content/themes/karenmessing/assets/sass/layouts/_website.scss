@@ -74,6 +74,14 @@ img {
   display: none;
 }
 
+.phone-only {
+  display: none;
+  
+  @include phone {
+    display: inherit;
+  }
+}
+
 .hide-phone {
   @include phone {
     display: none;
