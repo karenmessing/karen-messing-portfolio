@@ -101,6 +101,7 @@ header {
     
   } // a
   
+  .single &.menu-item-type-custom a, // laaaaaaazy
   &.current-menu-item a {
     
     color: $tertiary;
