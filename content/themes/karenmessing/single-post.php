@@ -27,10 +27,11 @@
 </div>
 <section class="work-nav">
   <div class="navigation-arrow-wrap">
-    <a href="#" class="navigation-arrow mask-icon arrow-left"></a>
+    <?php previous_post_link(); ?>
   </div>
+  
   <div class="navigation-arrow-wrap">
-    <a href="#" class="navigation-arrow mask-icon arrow-right"></a>
+    <?php next_post_link(); ?>
   </div>
 </section>
 

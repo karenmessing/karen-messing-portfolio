@@ -282,6 +282,11 @@
     border-right: 1px solid $divider;
   }
   
+  // Inactive state.
+  .inactive {
+    @include opacity(.3);
+  }
+  
 } // .navigation-arrow-wrap
 
 .navigation-arrow-wrap-phone {
