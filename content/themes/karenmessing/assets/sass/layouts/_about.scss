@@ -10,6 +10,7 @@
   
   h2 {
     text-align: left;
+    margin-bottom: 30px;
   }
   
   h2,
@@ -18,7 +19,23 @@
   }
   
   section {
+    
     border-left: 1px solid $divider;
+    padding-bottom: 25px;
+    
+    p:first-child {
+      // equalizes the fact that the right column has lis
+      margin-top: 0;
+    }
+    
+    p:last-child {
+      margin-bottom: 0;
+    }
+    
+  } // section
+  
+  a:hover {
+    color: $tertiary;
   }
   
   @include phone {
@@ -34,6 +51,10 @@
       
       border: none;
       padding: 0;
+    }
+    
+    h2 {
+      margin-bottom: 1em;
     }
     
     .column {
