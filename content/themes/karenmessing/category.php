@@ -6,7 +6,7 @@
 <?php foreach ($posts as $project): ?>
   <div class="images">
     <?php if ($i++ == 0): ?>
-    <a href="#" class="navigation-arrow mask-icon arrow-up back-to-top"></a>
+      <a href="#" class="navigation-arrow mask-icon arrow-up back-to-top"></a>
     <?php endif; ?>
     
     <section class="work-item">
@@ -22,7 +22,13 @@
         <a href="<?= get_permalink( $project ); ?>"><?= $title; ?></a>
       </p>
       
-      <img src="<?= get_field('cover_image', $project->ID)['url']; ?>" />
+      <?php if (get_field('category_page_images', $project->ID)): ?>
+        <?php while (has_sub_field('category_page_images', $project->ID)): ?>
+          <img src="<?= get_sub_field('image', $project->ID)['url']; ?>" />
+        <?php endwhile; ?>
+      <?php else: ?>
+        <img src="<?= get_field('cover_image', $project->ID)['url']; ?>" />
+      <?php endif; ?>
     </section>
   </div>
 <?php endforeach; ?>
