@@ -9,8 +9,6 @@ require.config
 define [
   'jquery'
 ], ($) ->
-  console.log 'it works'
-    
   rand = (min, max) ->
     if arguments.length is 1
       max = min
