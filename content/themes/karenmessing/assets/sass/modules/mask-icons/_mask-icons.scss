@@ -18,7 +18,8 @@
   
   .mask-icon {
     @include transition(background-color .2s ease);
-
+    @include translateZ(0);
+    
     display: block;
     background-color: $secondary;
     
