@@ -45,12 +45,16 @@ header {
 
 .global-logo {
   
+  $letter-spacing: 4px;
+  $logo-padding-h: 25px;
+  $logo-padding-v: 15px;
+  
   @include transition( color .15s linear, border-color .15s linear );
   
   border: 2px solid $secondary;
-  padding: 15px 25px;
+  padding: $logo-padding-v ($logo-padding-h - $letter-spacing) $logo-padding-v $logo-padding-h;
   margin: 70px 0 55px;
-  letter-spacing: 4px;
+  letter-spacing: $letter-spacing;
   font-size: em(18px);
   
   &:hover {
