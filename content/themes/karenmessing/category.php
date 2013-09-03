@@ -11,15 +11,13 @@
     
     <section class="work-item">
       <p class="description">
-        <?php
-          if (get_field('project_link', $project->ID)) {
-            $title = get_field('project_link', $project->ID);
-          } else {
-            $title = $project->post_title;
-          }
-        ?>
-        
-        <a href="<?= get_permalink( $project ); ?>"><?= $title; ?></a>
+        <?php if (get_field('project_link', $project->ID)): ?>
+          <?php $title = get_field('project_link', $project->ID); ?>
+          <a href="//<?= $title; ?>"><?= $title; ?></a>
+        <?php else: ?>
+          <?php $title = $project->post_title; ?>
+          <a href="<?= get_permalink($project); ?>"><?= $title; ?></a>
+        <?php endif; ?>
       </p>
       
       <?php if (get_field('category_page_images', $project->ID)): ?>
