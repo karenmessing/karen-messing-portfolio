@@ -28,18 +28,21 @@ Security::forceLogin();
   
   <link rel="stylesheet" href="<?php Assets::css('style'); ?>">
   
-  <style class="custom-category-css"></style>
-  
   <!--[if lt IE 9]>
     <script src="<?php Assets::js('libs/html5shiv'); ?>"></script>
   <![endif]-->
+  
+  <?php /* ?>
+  <style class="custom-category-css"></style>
   
   <script>
     window.km = window.km || {}; // Global namespace.
     window.km.config = {}; // Config data.
     window.km.bootstrapped = {}; // Bootstrapped data.
   </script>
+  
   <script data-main="<?php echo Assets::js('main'); ?>" src="<?php Assets::js('libs/require'); ?>"></script>
+  <?php */ ?>
 
   <?php wp_head(); ?>
 </head>

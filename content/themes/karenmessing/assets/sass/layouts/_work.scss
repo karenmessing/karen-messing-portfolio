@@ -203,9 +203,14 @@
   $categories: invitations #CBD8E7, logos #F7D3D3, websites #CDF6E2;
   
   @each $category in $categories {
+    .#{nth($category, 1)} {
+      background-image: image-url('#{nth($category, 1)}.jpg');
+      background-size: 100% 100%;
+    }
+    
     .#{nth($category, 1)}:hover {
-      background-color: nth($category, 2);
-      
+      background-image: image-url('#{nth($category, 1)}-hover.jpg');
+
       .block-title-wrap {
         color: darken(saturate(nth($category, 2), 10%), 30%);
       }
