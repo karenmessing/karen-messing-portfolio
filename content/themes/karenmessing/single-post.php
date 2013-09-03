@@ -25,6 +25,7 @@
 <div class="navigation-arrow-wrap-phone phone-only">
   <a href="#" class="navigation-arrow mask-icon arrow-up back-to-top"></a>
 </div>
+
 <section class="work-nav">
   <div class="navigation-arrow-wrap">
     <?php previous_post_link(); ?>

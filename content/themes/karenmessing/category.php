@@ -31,4 +31,42 @@
   </div>
 <?php endforeach; ?>
 
+<section class="work-nav">
+  <?php
+  $current = single_cat_title('', false);
+  $cats = get_categories();
+  $previous = null;
+  $next = null;
+  
+  # Filter out 'uncategorized'.
+  foreach ($cats as $key => $cat) {
+    if ($cat->slug === 'uncategorized') {
+      unset($cats[$key]);
+    }
+  }
+  
+  $cats = array_values($cats);
+
+  foreach ($cats as $key => $cat) {
+    if ($cat->name === $current) {
+      if ($key === 0) {
+        $previous = $cats[count($cats) - 1]->slug;
+        $next = $cats[$key + 1]->slug;
+      } else {
+        $previous = $cats[$key - 1]->slug;
+        $next = $key === count($cats) - 1 ? $cats[0]->slug : $cats[$key]->slug;
+      }
+    }
+  }
+  ?>
+  
+  <div class="navigation-arrow-wrap">
+    <a href="/category/<?= $previous; ?>" class="navigation-arrow mask-icon arrow-left"></a>
+  </div>
+  
+  <div class="navigation-arrow-wrap">
+    <a href="/category/<?= $next; ?>" class="navigation-arrow mask-icon arrow-right"></a>
+  </div>
+</section>
+
 <?php get_footer(); ?>
