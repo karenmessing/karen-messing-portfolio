@@ -74,6 +74,10 @@
 .contact-details {
   @include span-columns(4.5 omega);
   @include prefix(.5);
+  
+  .blank {
+    height: 40px;
+  }
 }
 
 .about-image {
