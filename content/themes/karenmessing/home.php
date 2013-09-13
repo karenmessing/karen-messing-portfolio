@@ -23,20 +23,24 @@ $categories = get_categories($args);
   </ul>
 <?php endif; ?>
 
-<?php if ($categories): ?>
-  <ul class="grid work-categories">
-    <?php foreach ($categories as $category): ?>
-      <?php if ($category->slug === 'uncategorized') continue; ?>
-      
-      <li class="grid-block <?php echo $category->slug; ?>">
-        <a href="<?php echo get_category_link($category->cat_ID); ?>">
-          <span class="block-title-wrap">
-            <span class="block-title"><?php echo $category->name; ?></span>
-          </span>
-        </a>
-      </li>
-    <?php endforeach; ?>
-  </ul>
-<?php endif; ?>
+<ul class="grid work-categories">
+  <?php
+  $cat_pages = get_posts(array(
+    'post_type' => 'page',
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'misc-work-template.php'
+  ));
+  
+  foreach ($cat_pages as $cat_page):
+  ?>  
+    <li class="grid-block <?= $cat_page->post_name; ?>">
+      <a href="/<?= $cat_page->post_name; ?>">
+        <span class="block-title-wrap">
+          <span class="block-title"><?= $cat_page->post_title; ?></span>
+        </span>
+      </a>
+    </li>
+  <?php endforeach; ?>
+</ul>
 
 <?php get_footer(); ?>
