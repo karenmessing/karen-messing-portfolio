@@ -11,8 +11,15 @@ get_header();
 <?php while (has_sub_field('projects')): ?>
   <article class="work-item">
     <p class="description">
-      <?php if (get_sub_field('link')): ?>
-        <a href="//<?= the_sub_field('link') ?>"><?= the_sub_field('title') ?></a>
+      <?php $link = get_sub_field('link'); ?>
+      <?php if ($link): ?>
+        <a href="//<?= $link; ?>">
+      <?php endif; ?>
+      
+      <?= the_sub_field('title'); ?>
+      
+      <?php if ($link): ?>
+        </a>
       <?php endif; ?>
     </p>
   
