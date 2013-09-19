@@ -35,13 +35,6 @@ class acf_input
 		add_action('acf/input/admin_enqueue_scripts', array($this, 'input_admin_enqueue_scripts'));
 		
 		
-		add_action('wp_restore_post_revision', array($this, 'wp_restore_post_revision'), 10, 2 );
-		
-		
-		// filters
-		add_filter('_wp_post_revision_fields', array($this, 'wp_post_revision_fields') );
-		
-		
 		// ajax acf/update_field_groups
 		add_action('wp_ajax_acf/input/render_fields', array($this, 'ajax_render_fields'));
 		add_action('wp_ajax_acf/input/get_style', array($this, 'ajax_get_style'));
@@ -202,6 +195,37 @@ class acf_input
 			// foreach($acfs as $acf)
 		}
 		// if($acfs)
+		
+		
+		// Allow 'acf_after_title' metabox position
+		add_action('edit_form_after_title', array($this, 'edit_form_after_title'));
+	}
+	
+	
+	/*
+	*  edit_form_after_title
+	*
+	*  This action will allow ACF to render metaboxes after the title
+	*
+	*  @type	action
+	*  @date	17/08/13
+	*
+	*  @param	N/A
+	*  @return	N/A
+	*/
+	
+	function edit_form_after_title()
+	{
+		// globals
+		global $post, $wp_meta_boxes;
+		
+		
+		// render
+		do_meta_boxes( get_current_screen(), 'acf_after_title', $post);
+		
+		
+		// clean up
+		unset( $wp_meta_boxes['post']['acf_after_title'] );
 	}
 	
 	
@@ -594,115 +618,6 @@ class acf_input
 			'acf-datepicker',	
 		));
 	}
-	
-	
-	/*
-	*  wp_restore_post_revision
-	*
-	*  @description: 
-	*  @since 3.4.4
-	*  @created: 4/09/12
-	*/
-	
-	function wp_restore_post_revision( $parent_id, $revision_id )
-	{
-		global $wpdb;
-		
-		
-		// get field from postmeta
-		$rows = $wpdb->get_results( $wpdb->prepare(
-			"SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = %d AND meta_key NOT LIKE %s", 
-			$revision_id, 
-			'\_%'
-		), ARRAY_A);
-		
-		
-		if( $rows )
-		{
-			foreach( $rows as $row )
-			{
-				update_post_meta( $parent_id, $row['meta_key'], $row['meta_value'] );
-			}
-		}
-			
-	}
-	
-	
-	/*
-	*  wp_post_revision_fields
-	*
-	*  @description: 
-	*  @since 3.4.4
-	*  @created: 4/09/12
-	*/
-	
-	function wp_post_revision_fields( $fields ) {
-		
-		global $post, $wpdb, $revision, $left_revision, $right_revision, $pagenow;
-		
-		
-		if( $pagenow != "revision.php" )
-		{
-			return $fields;
-		}
-		
-		
-		// get field from postmeta
-		$rows = $wpdb->get_results( $wpdb->prepare(
-			"SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = %d AND meta_key NOT LIKE %s", 
-			$post->ID, 
-			'\_%'
-		), ARRAY_A);
-		
-		
-		if( $rows )
-		{
-			foreach( $rows as $row )
-			{
-				$fields[ $row['meta_key'] ] =  ucwords( str_replace('_', ' ', $row['meta_key']) );
-
-
-				// left vs right
-				if( isset($_GET['left']) && isset($_GET['right']) )
-				{
-					$left = get_metadata( 'post', $_GET['left'], $row['meta_key'], true );
-					$right = get_metadata( 'post', $_GET['right'], $row['meta_key'], true );
-					
-					// format arrays
-					if( is_array($left) )
-					{
-						$left = implode(', ', $left);
-					}
-					if( is_array($right) )
-					{
-						$right = implode(', ', $right);
-					}
-					
-					
-					$left_revision->$row['meta_key'] = $left;
-					$right_revision->$row['meta_key'] = $right;
-				}
-				else
-				{
-					$left = get_metadata( 'post', $revision->ID, $row['meta_key'], true );
-					
-					// format arrays
-					if( is_array($left) )
-					{
-						$left = implode(', ', $left);
-					}
-					
-					$revision->$row['meta_key'] = $left;
-				}
-				
-			}
-		}
-		
-		
-		return $fields;
-	
-	}
-	
 			
 }
 
