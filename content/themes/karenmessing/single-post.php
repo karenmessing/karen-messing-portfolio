@@ -26,14 +26,6 @@
   <a href="#" class="navigation-arrow mask-icon arrow-up back-to-top"></a>
 </div>
 
-<section class="work-nav">
-  <div class="navigation-arrow-wrap">
-    <?php previous_post_link(); ?>
-  </div>
-  
-  <div class="navigation-arrow-wrap">
-    <?php next_post_link(); ?>
-  </div>
-</section>
+<?php include(theme\INCLUDE_PATH . '/nav-arrows.php'); ?>
 
 <?php get_footer(); ?>

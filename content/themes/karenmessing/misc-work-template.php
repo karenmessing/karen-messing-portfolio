@@ -29,4 +29,6 @@ get_header();
   </article>
 <?php endwhile; ?>
 
+<?php include(theme\INCLUDE_PATH . '/nav-arrows.php'); ?>
+
 <?php get_footer(); ?>
