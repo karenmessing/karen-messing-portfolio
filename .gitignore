@@ -27,8 +27,12 @@ sitemap.xml.gz
 # W3 Total Cache
 content/db.php
 content/object-cache.php
+content/advanced-cache.php
 content/w3-total-cache-config-preview.php
+content/plugins/w3tc-wp-loader.php
 content/w3tc/
+content/w3tc-config/
+content/cache/
 
 # Sass
 .sass-cache
