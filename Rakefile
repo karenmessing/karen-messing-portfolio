@@ -185,7 +185,7 @@ namespace :deploy do
   end
   
   desc 'Deploy to production.'
-  task :prod do
+  task :prod => %(build:optimized) do
     deploy = config['production']['deploy']
     cmd = "rsync -az --progress --delete --exclude='.htaccess' --exclude='local-config.php' build/ #{deploy['user']}@#{deploy['host']}:#{deploy['directory']}/"
     puts "Running: #{cmd}"
