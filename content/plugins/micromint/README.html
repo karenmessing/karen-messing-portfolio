@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>µAudio Plugin README</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="824.44">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 16.0px 0.0px; font: 24.0px Times}
+    p.p2 {margin: 0.0px 0.0px 14.0px 0.0px; font: 18.0px Times}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #001de0}
+    p.p4 {margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p6 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Courier}
+    span.s1 {text-decoration: underline}
+    span.s2 {color: #000000}
+    span.s3 {font: 12.0px Geneva}
+    span.s4 {font: 12.0px Courier}
+    span.s5 {text-decoration: underline ; color: #001de0}
+    span.Apple-tab-span {white-space:pre}
+  .style1 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+  </style>
+</head>
+<body>
+<h1 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 24.0px Times"><b>µMint Plugin README:</b></h1>
+<h2 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 18.0px Times"><b>Contents</b></h2>
+<ul>
+  <li style="margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #001de0"><span class="s1"><a href="#information">Information</a></span></li>
+  <li style="margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #001de0"><span class="s1"><a href="#installation">Installation</a></span></li>
+  <li style="margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #001de0"><span class="s1"><a href="#notes">Notes</a></span></li>
+  <li style="margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #001de0"><span class="s1"><a href="#issues">Known Issues</a></span></li>
+</ul>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times"><b>Information:</b></h3>
+<ul>
+  <li style="margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times">Version 0.4</li>
+  <li style="margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times">Release Date: 5 December 2008</li>
+  <li style="margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #001de0"><span class="s2">Plugin Homepage: <a href="http://compu.terlicio.us/code/plugins/audio/"><span class="s1">http://compu.terlicio.us/code/plugins/mint/</span></a></span></li>
+  <li style="margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times">Plugin Author: Christopher O'Connell</li>
+</ul>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times"><b>Installation:</b></h3>
+<p class="p6">The most basic installation simply requires that you upload the 'micromint' folder to your /wp-content/plugins directory. Then, from the <span class="s3">Administration -&gt; Plugins</span> menu, simply activate the plugin and indicate where Mint is installed. Now the Mint tracking code is automatically inserted into wordpress. Done.</p>
+<p class="p6">In order to integrate statistics into WordPress, you need to install an API for Mint. There are currently two supported options, the <a href="http://84degrees.com/expose/">Expos&eacute; pepper</a>, by <a href="http://84degrees.com">Adam Livesley</a> or the <a href="http://compu.terlicio.us/code/plugins/mint/">&micro;API</a> which is heavily based on the Expos&eacute; code, with some improvements. The &micro;API is distributed along with this package. In the future, I hope to discontinue the &micro;API and simply provide an exposure for Expos&eacute;, but at this time it is not mature enough to be the reccomended option. Although both pepper are supported, at this time I reccomend the &micro;API pepper for several reasons:</p>
+<ul class="p6 style1">
+  <li>Although somewhat convoluted there is a way that the Expos&eacute; pepper can expose priveledged information. &micro;API patches this.</li>
+  <li>The &micro;API includes better formed, XML based error responses, allowing the client application to integrate better.</li>
+  <li>The &micro;API is currently 100% compatible with Expos&eacute; exposures, as it uses the same serializer.</li>
+  <li>&micro;API has been more extensively tested with this release.</li>
+</ul>
+<p class="p6"><strong>Please Note:</strong> You cannot have both Expos&eacute; and &micro;API installed concurently. If you already have Expos&eacute; installed (with Firemint, for example), you should simply drop the included <code>/exposures/micro.php</code> file into the <code>/exposures</code> folder of your Expos&eacute; installation</p>
+<p class="p6">To install the API (installation is the same for both), simply upload the pepper to the appropriate folder in mint (<code>/pepper/chrisoconnell/</code> and <code>/pepper/84degrees/</code> for &micro;API and Expos&eacute; respectively). Go to the Mint control panel and enable the API. Enter an API key. If you are using the Expos&eacute; API, make sure that the micro.php file is in <code>/pepper/84degrees/expose/exposures/</code>.</p>
+<p class="p6">In WordPress goto 'Settings > &micro;Mint'. Change your mint URL if neccessary. Select "Integrate Mint statistics into WordPress?". Select the appropriate API and enter the API key.</p>
+<p class="p6">To setup the sidebar widget, visit 'Design > Widgets'. You can manually configure which datafields are displayed as well as display labels for different data.</p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times"><b>Notes:</b></h3>
+<ul class="style1">
+  <li>As of this release, the local integration is not currently shipping with the plugin. I had several instances of mass data corruption on the testbed, and don't want to ship this integration until I am comfortable with the data integrity. The theory is that in an installation where WordPress and Mint both share a database, WordPress will simply query the Mint datatables directly without needing the API</li>
+    <li>You cannot have both the &micro;API and the Expos&eacute; API installed at the same time.</li>
+    <li>Stats are only fetched every 10 minutes and cached. If you need a different value, you can edit the <code>$MICROMINT_INTERVAL</code> value at the top of <code>microMint.php</code>. This needs to be something which can be fed into php <code>strtotime</code> function.</li>
+    <li>If you want to update the stats <strong>right now</strong>, or just want to see some debugging information, append <code>&amp;debug</code> to the end of the &micro;Mint configuration page. This will both print debug information as well as perform and immediate update</li>
+    <li>If you absolutely <strong>have</strong> to change the widgets, edit <code>microMint.widget.php</code> (sidebar) and <code>mircoMint.dashboard.php</code></li>
+</ul>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times"><a name="issues"></a><b>Known Issues:</b></h3>
+<ul class="style1">
+  <li>When used with the Exspos&eacute; API, error information is not that imaginative.</li>
+  <li>Please post any questions or bugs on the <a href="http://compu.terlicio.us/code/plugins/mint/micro-mint-installation/"><span class="s5">Version Installation Page</span></a>. Feature requests and comments of a more general nature should go on the <a href="http://compu.terlicio.us/code/plugins/mint/"><span class="s5">Home Page</span></a>. The author can be <a href="http://compu.terlicio.us/about-contact/">contacted here.</a></li>
+  <li>API Keys with non-alphanumeric characters may not work.</li>
+</ul>
+</body>
+</html>
