@@ -186,6 +186,12 @@ namespace :deploy do
   
   desc 'Deploy to production.'
   task :prod do
-    puts 'Not set up yet.'
+    deploy = config['production']['deploy']
+    cmd = "rsync -az --progress --delete --exclude='.htaccess' --exclude='local-config.php' build/ #{deploy['user']}@#{deploy['host']}:#{deploy['directory']}/"
+    puts "Running: #{cmd}"
+    system cmd
+    cmd = "ssh #{deploy['user']}@#{deploy['host']} 'chmod -R 777 #{deploy['directory']}/content/uploads'"
+    puts "Setting permissions."
+    system cmd
   end
 end
