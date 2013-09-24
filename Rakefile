@@ -34,7 +34,7 @@ namespace :build do
   desc 'Move WordPress assets into the build.'
   task :wp => %w(create) do
     # Move the WordPress core.
-    FileUtils.cp_r %w(wp content wp-config.php index.php mint), config['build_dir']
+    FileUtils.cp_r %w(wp content wp-config.php index.php favicon.ico mint), config['build_dir']
     puts "The WordPress assets have been moved to #{config['build_dir']}/."
   end
   
