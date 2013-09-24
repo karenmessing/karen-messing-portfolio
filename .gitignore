@@ -34,6 +34,9 @@ content/w3tc/
 content/w3tc-config/
 content/cache/
 
+# Mint.
+mint/config/db.php
+
 # Sass
 .sass-cache
 content/themes/*/assets/css

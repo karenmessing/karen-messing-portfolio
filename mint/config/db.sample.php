@@ -14,9 +14,9 @@
 
 $Mint = new Mint (array
 (
-	'server'	=> 'localhost',
-	'username'	=> 'karenmessing',
-	'password'	=> 'qgFlrmF0RUZNc',
-	'database'	=> 'km_kmessing_prod',
+	'server'	=> '',
+	'username'	=> '',
+	'password'	=> '',
+	'database'	=> '',
 	'tblPrefix'	=> 'mint_'
 ));
