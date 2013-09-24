@@ -31,7 +31,7 @@ Security::forceLogin();
   <!--[if lt IE 9]>
     <script src="<?php Assets::js('libs/html5shiv'); ?>"></script>
   <![endif]-->
-  
+    
   <?php /* ?>
   <style class="custom-category-css"></style>
   
