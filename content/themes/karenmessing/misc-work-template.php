@@ -6,7 +6,7 @@ get_header();
 
 <h1><?= $post->post_title; ?></h1>
 
-<a href="#" class="navigation-arrow mask-icon arrow-up back-to-top"></a>
+<a href="#" class="navigation-arrow mask-icon arrow-up back-to-top hide-phone"></a>
 
 <?php while (has_sub_field('projects')): ?>
   <article class="work-item">
@@ -28,6 +28,11 @@ get_header();
     </ul>
   </article>
 <?php endwhile; ?>
+
+<div class="navigation-arrow-wrap-phone mobile-only">
+  <br>
+  <a href="#" class="navigation-arrow mask-icon arrow-up back-to-top"></a>
+</div>
 
 <?php include(theme\INCLUDE_PATH . '/nav-arrows.php'); ?>
 

@@ -22,7 +22,8 @@
   </ul>
 <?php endif; ?>
 
-<div class="navigation-arrow-wrap-phone phone-only">
+<div class="navigation-arrow-wrap-phone mobile-only">
+  <br>
   <a href="#" class="navigation-arrow mask-icon arrow-up back-to-top"></a>
 </div>
 

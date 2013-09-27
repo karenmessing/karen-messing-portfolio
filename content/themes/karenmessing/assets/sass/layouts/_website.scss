@@ -88,6 +88,14 @@ img {
   }
 }
 
+.hide-mobile {
+  @include mobile {
+    display: none;
+  }
+  
+  display: inherit;
+}
+
 // Misc. elements.
 hr {
   width: auto;
