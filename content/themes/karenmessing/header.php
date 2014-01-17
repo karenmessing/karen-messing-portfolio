@@ -32,6 +32,8 @@ Security::forceLogin();
     <script src="<?php Assets::js('libs/html5shiv'); ?>"></script>
   <![endif]-->
     
+  <script src="<?php Assets::js('libs/modernizr'); ?>"></script>
+    
   <?php /* ?>
   <style class="custom-category-css"></style>
   
