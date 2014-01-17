@@ -11,6 +11,7 @@
   
   -webkit-mask: center center no-repeat image-url($svg);
      -moz-mask: center center no-repeat image-url($svg);
+     mask: center center no-repeat image-url($svg);
   
   .no-cssmask & {
     @include icons-sprite($img);
