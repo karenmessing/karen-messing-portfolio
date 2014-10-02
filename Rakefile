@@ -176,7 +176,21 @@ namespace :deploy do
   desc 'Deploy to staging.'
   task :staging => %(build:debug) do
     deploy = config['staging']['deploy']
-    cmd = "rsync -az --progress --delete --exclude='.htaccess' --exclude='local-config.php' build/ #{deploy['user']}@#{deploy['host']}:#{deploy['directory']}/"
+    cmd = %Q{\
+rsync -az --progress --delete \
+--exclude='.htaccess' \
+--exclude='local-config.php'  \
+--exclude='content/uploads/'  \
+--exclude='content/db.php' \
+--exclude='content/object-cache.php' \
+--exclude='content/advanced-cache.php' \
+--exclude='content/w3-total-cache-config-preview.php' \
+--exclude='content/plugins/w3tc-wp-loader.php' \
+--exclude='content/w3tc/' \
+--exclude='content/w3tc-config/' \
+--exclude='content/cache/' \
+build/ #{deploy['user']}@#{deploy['host']}:#{deploy['directory']}/
+}
     puts "Running: #{cmd}"
     system cmd
     cmd = "ssh #{deploy['user']}@#{deploy['host']} 'chmod -R 777 #{deploy['directory']}/content/uploads'"
@@ -190,7 +204,9 @@ namespace :deploy do
     cmd = %Q{\
 rsync -az --progress --delete \
 --exclude='.htaccess' \
---exclude='local-config.php'  \
+--exclude='local-config.php' \
+--exclude='mint/config/db.php' \
+--exclude='content/uploads/' \
 --exclude='content/db.php' \
 --exclude='content/object-cache.php' \
 --exclude='content/advanced-cache.php' \

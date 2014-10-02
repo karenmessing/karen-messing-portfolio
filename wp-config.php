@@ -1,7 +1,4 @@
 <?php
-# W3 Total Cache.
-define('WP_CACHE', getenv('ENVIRONMENT') === 'production' ? true : false);
-
 # Site URLs
 define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST']);
 define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp/');
